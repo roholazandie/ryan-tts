@@ -173,8 +173,8 @@ def delete_api():
 @app.route('/api/delete_all')
 def delete_all_api():
     try:
-        wav_filelist = [f for f in os.listdir(esp_config.voice_dir) if f.endswith(".wav")]
-        phonemes_filelist = [f for f in os.listdir(esp_config.phonemes_dir) if f.endswith(".txt")]
+        wav_filelist = [f for f in os.listdir(config.voice_dir) if f.endswith(".wav")]
+        phonemes_filelist = [f for f in os.listdir(config.phonemes_dir) if f.endswith(".txt")]
         for f in wav_filelist:
             os.remove(os.path.join(config.voice_dir, f))
 
