@@ -87,6 +87,7 @@ vocoder.remove_weight_norm()
 
 
 def tts(input_text, output_filename):
+    input_text = input_text.replace("'", "").replace("`", "")
     # synthesis
     with torch.no_grad():
         start = time.time()

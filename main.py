@@ -104,6 +104,7 @@ vocoder.remove_weight_norm()
 print(f"Input your favorite sentence in.")
 text = input()
 
+text = text.replace("'", "").replace("`", "")
 
 # synthesis
 with torch.no_grad():
