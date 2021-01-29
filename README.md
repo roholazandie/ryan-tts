@@ -1,6 +1,11 @@
 ## Installation
 
 ```
+mkdir -p outputs/phoneme_files
+mkdir outputs/wav_files
+```
+
+```
 pip install -r requirements.txt
 ```
 and install the latest torch
@@ -9,6 +14,14 @@ download the models and change the config.json to point to them.
 
 Note:
 for now the tts models should be on the root of project, just like what we have in config.json
+
+## Running
+```
+export PYTHONPATH=$(pwd)/espnet:$PYTHONPATH
+python tts_flask_main.py
+```
+
+
 
 ## Using
 To call it or ask a question:
