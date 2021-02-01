@@ -16,9 +16,9 @@ Note:
 for now the tts models should be on the root of project, just like what we have in config.json
 
 ## Running
+Make sure you change the paths and port in run.sh
 ```
-export PYTHONPATH=$(pwd)/espnet:$PYTHONPATH
-python tts_flask_main.py
+./run.sh
 ```
 
 
