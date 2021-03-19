@@ -1,3 +1,6 @@
+[![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
+## Ryan-TTS
+This repository is the code that can be used to run the model. Training will be added soon.
 ## Installation
 
 ```
