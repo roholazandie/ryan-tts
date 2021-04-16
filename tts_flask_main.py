@@ -192,6 +192,9 @@ def delete_all_api():
 if __name__ == "__main__":
     # response = tts("this is a test.", "45723gd")
     # print(response)
+    seed = 42
+    np.random.seed(seed)
+    torch.manual_seed(seed)
 
     app.secret_key = 'fhcbnmblhsadf7ew8qw4q'
     app.config['SESSION_TYPE'] = 'filesystem'
