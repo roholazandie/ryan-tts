@@ -127,6 +127,7 @@ def tts(input_text, output_filename):
     wav_file = os.path.join(config.voice_dir, output_filename + ".wav")
     write(wav_file, config.fs, wav.view(-1).cpu().numpy())
 
+    torch.cuda.empty_cache()
     return {"phonemes": " ".join(lines)}
 
 
@@ -198,4 +199,4 @@ if __name__ == "__main__":
 
     app.secret_key = 'fhcbnmblhsadf7ew8qw4q'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(debug=True, port=config.port)
+    app.run(threaded=False, debug=True, port=config.port)

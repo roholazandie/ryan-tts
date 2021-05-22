@@ -167,3 +167,4 @@ env/*
 /outputs/
 /exp/
 models
+*.wav
