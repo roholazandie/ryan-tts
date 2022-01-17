@@ -13,6 +13,7 @@ from config import TTSConfig
 from flask import Flask, request, session, send_file, Response, after_this_request
 import ast, uuid
 import json
+import gc
 
 app = Flask(__name__)
 
@@ -133,12 +134,19 @@ def tts(input_text, output_filename):
 
 @app.route('/api/tts', methods=['POST'])
 def tts_api():
-    #print(request.data.decode("utf-8"))
-    cleaned_data = request.data.decode("utf-8").replace("'", "").replace("`", "")#.replace("\"", "")
-    data = ast.literal_eval(cleaned_data)
-    unique_name = str(uuid.uuid4())
-    response = tts(data["input_text"], unique_name)
-    response["filename"] = unique_name
+    try:
+        cleaned_data = request.data.decode("utf-8").replace("'", "").replace("`", "")#.replace("\"", "")
+        data = ast.literal_eval(cleaned_data)
+        unique_name = str(uuid.uuid4())
+        response = tts(data["input_text"], unique_name)
+        response["filename"] = unique_name
+    except Exception as e :
+        response = "Error" + str(e)
+    finally:
+        gc.collect()
+        torch.cuda.empty_cache()
+
+
     return response
 
 
